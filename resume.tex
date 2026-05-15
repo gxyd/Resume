@@ -1,0 +1,164 @@
+%──────────────────────────────────────────────────────────────
+% Gaurav Dhingra — Resume
+% Compiler Engineer · LLVM · Systems Programming
+%
+% Build:  pdflatex resume.tex   (or just: make)
+% Track:  git add resume.tex Makefile .gitignore
+%──────────────────────────────────────────────────────────────
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.6in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{tabularx}
+
+% ── Colors ──
+\definecolor{accent}{HTML}{2C5282}
+\definecolor{muted}{HTML}{4A5568}
+\definecolor{lightline}{HTML}{CBD5E0}
+
+% ── Hyperlinks ──
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    pdfauthor={Gaurav Dhingra},
+    pdftitle={Gaurav Dhingra -- Resume},
+}
+
+% ── Section formatting ──
+\titleformat{\section}
+    {\large\bfseries\color{accent}}
+    {}{0em}{}
+    [\vspace{-0.6em}{\color{accent}\rule{\textwidth}{1.2pt}}]
+
+\titlespacing*{\section}{0pt}{0.8em}{0.4em}
+
+% ── List formatting ──
+\setlist[itemize]{
+    leftmargin=1.2em,
+    itemsep=1pt,
+    parsep=0pt,
+    topsep=2pt,
+    label=\textbullet,
+}
+
+% ── Custom commands ──
+\newcommand{\role}[3]{%
+    % #1 = Title — Org,  #2 = Location,  #3 = Dates
+    \vspace{0.4em}
+    \noindent\textbf{#1} \hfill \textcolor{muted}{\small #3}\\[-0.3em]
+    \textit{\textcolor{muted}{\small #2}}
+    \vspace{0.1em}
+}
+
+\newcommand{\ossproject}[1]{%
+    \vspace{0.3em}\noindent\textbf{\small #1}
+    \vspace{0.05em}
+}
+
+\newcommand{\skillrow}[2]{%
+    \textbf{#1:} & #2 \\[2pt]
+}
+
+% ── No page numbers ──
+\pagestyle{empty}
+
+% ══════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Header ──
+\begin{center}
+    {\LARGE\bfseries Gaurav Dhingra}\\[0.2em]
+    {\color{muted} Compiler Engineer\enspace·\enspace LLVM\enspace·\enspace Systems Programming}\\[0.4em]
+    {\small
+        \href{mailto:gauravdhingra.gxyd@gmail.com}{gauravdhingra.gxyd@gmail.com}
+        \enspace|\enspace +91\,8791414504
+        \enspace|\enspace \href{https://github.com/gxyd}{github.com/gxyd}
+        \enspace|\enspace \href{https://gxyd.github.io}{gxyd.github.io}
+    }
+\end{center}
+
+% ── Summary ──
+\section{SUMMARY}
+
+Compiler engineer with 8 years of software experience and deep expertise in
+LLVM-based compiler infrastructure. Core contributor to LFortran (LLVM-based
+Fortran compiler) and active contributor to LLVM/Clang. Background spans
+compiler IR design, code generation, symbolic computation engines, and
+expression parsing. Two-time Google Summer of Code participant with a sustained
+track record of open-source contributions to SymPy, LFortran, and LLVM.
+
+% ── Technical Skills ──
+\section{TECHNICAL SKILLS}
+
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+    \skillrow{Languages}{C++, Python, C, Kotlin, Bash}
+    \skillrow{Compiler Infrastructure}{LLVM, Clang, clang-tidy, LLVM IR, ASR (Abstract Semantic Representation)}
+    \skillrow{Tools \& Platforms}{Git, CMake, AddressSanitizer (ASan), GDB, Docker, CI/CD (GitHub Actions)}
+    \skillrow{Domains}{Compiler optimization passes, frontend/backend code generation, symbolic computation, expression parsing, intermediate representations}
+\end{tabularx}
+
+% ── Experience ──
+\section{EXPERIENCE}
+
+\role{LLVM Project --- Open-Source Contributor}{Remote}{2025 -- Present}
+\begin{itemize}
+    \item Contributing to clang-tidy: developing and refining static analysis checks for the Clang tooling ecosystem
+    \item Investigating and reproducing crash bugs in Clang's parser (e.g., stack-overflow in \texttt{ParsePostfixExpressionSuffix}) using locally built LLVM with AddressSanitizer on ARM64
+    \item Engaging with the LLVM community through bug reports, code review, and patch submissions
+\end{itemize}
+
+\role{LFortran --- Compiler Engineer}{Remote}{March 2024 -- June 2025}
+\begin{itemize}
+    \item Core contributor to LFortran, a modern open-source Fortran compiler built on the LLVM backend, working toward its beta release
+    \item Designed and improved the array operation pass in ASR (Abstract Semantic Representation), LFortran's high-level intermediate representation
+    \item Implemented compiler frontend features and optimization passes in C++ using the LLVM C++ API
+    \item Collaborated asynchronously with the open-source team on architecture decisions, code review, and CI workflows
+\end{itemize}
+
+\role{Digital Aristotle (Byju's) --- Senior Research Engineer}{Bangalore, India}{April 2022 -- February 2024}
+\begin{itemize}
+    \item Built a math solver engine for K-12 education: designed and implemented a parser and compiler pipeline that transformed LaTeX mathematical expressions into an AST and internal evaluation form
+    \item Architected a domain-specific SDK in Kotlin for expression tree construction, type analysis, and step-by-step symbolic simplification
+    \item Worked in a cross-functional agile team integrating the solver with GeoGebra's visualization layer
+\end{itemize}
+
+\role{Digital Aristotle (Byju's) --- Junior Research Engineer}{Bangalore, India}{June 2018 -- March 2022}
+\begin{itemize}
+    \item Developed the Autosolver backend for the Byju's BTLA app: a symbolic math engine using SymPy for automated step-by-step problem solving
+    \item Designed and implemented a DSL for declarative step-by-step math solution templates, enabling content authors to define solver behavior without code changes
+    \item Built CI/CD pipelines and test infrastructure in Python and TypeScript
+\end{itemize}
+
+% ── Open-Source Contributions ──
+\section{OPEN-SOURCE CONTRIBUTIONS}
+
+\ossproject{SymPy --- Pull Request Manager (NumFOCUS-funded)}
+\begin{itemize}
+    \item Selected as one of the top contributors to manage PR review and release workflows for SymPy (12k+ GitHub stars), a widely-used symbolic mathematics library. Position funded by NumFOCUS (Sep 2017, Dec 2017, Feb 2018)
+\end{itemize}
+
+\ossproject{Google Summer of Code 2017 --- SymPy}
+\begin{itemize}
+    \item Extended the Risch integration algorithm: implemented the parametric logarithmic derivative problem and added support for integrating trigonometric functions via the Risch algorithm
+\end{itemize}
+
+\ossproject{Google Summer of Code 2016 --- SymPy}
+\begin{itemize}
+    \item Implemented coset enumeration and Reidemeister--Schreier algorithms for finitely presented groups; added low-index subgroup computation for group-theoretic operations in SymPy
+\end{itemize}
+
+% ── Education ──
+\section{EDUCATION}
+
+\role{Indian Institute of Technology Roorkee}{}{2013 -- 2018}
+Integrated M.Sc.\ in Applied Mathematics\\
+{\small\textcolor{muted}{Relevant coursework: Design \& Analysis of Algorithms, Data Structures, Graph Theory, Linear Algebra, Discrete Mathematics}}
+
+\end{document}

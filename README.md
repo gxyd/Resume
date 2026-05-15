@@ -1,2 +1,3 @@
 # Resume
-Source Files for my Resume.
+
+To generate resume.pdf just run `make` in your terminal
