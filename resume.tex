@@ -87,10 +87,11 @@
 % ── Summary ──
 \section{SUMMARY}
 
-Compiler engineer with 8 years of software experience and deep expertise in
-LLVM-based compiler infrastructure. Core contributor to LFortran (LLVM-based
-Fortran compiler) and active contributor to LLVM/Clang. Background spans
-compiler IR design, code generation, symbolic computation engines, and
+Compiler engineer with 8 years of software experience, deep expertise in
+LLVM-based compiler infrastructure, and active work extending ML compilation
+stacks (IREE/MLIR) for Arm vector extensions. Core contributor to LFortran
+(LLVM-based Fortran compiler) and active contributor to LLVM/Clang. Background
+spans compiler IR design, code generation, symbolic computation engines, and
 expression parsing. Two-time Google Summer of Code participant with a sustained
 track record of open-source contributions to SymPy, LFortran, and LLVM.
 
@@ -99,20 +100,22 @@ track record of open-source contributions to SymPy, LFortran, and LLVM.
 
 \begin{tabularx}{\textwidth}{@{} l X @{}}
     \skillrow{Languages}{C++, Python, C, Kotlin, Bash}
-    \skillrow{Compiler Infrastructure}{LLVM, Clang, clang-tidy, LLVM IR, ASR (Abstract Semantic Representation)}
-    \skillrow{Tools \& Platforms}{Git, CMake, AddressSanitizer (ASan), GDB, Docker, CI/CD (GitHub Actions)}
+    \skillrow{Compiler Infrastructure}{LLVM, Clang, clang-tidy, LLVM IR, MLIR, ASR (Abstract Semantic Representation)}
+    \skillrow{ML Compilers}{IREE, PyTorch (\texttt{torch.compile}, Inductor), ONNX, scalable vectorization (SVE/SME)}
+    \skillrow{Tools \& Platforms}{Git, CMake, GDB, Docker, CI/CD (GitHub Actions)}
     \skillrow{Domains}{Compiler optimization passes, frontend/backend code generation, symbolic computation, expression parsing, intermediate representations}
 \end{tabularx}
 
 % ── Experience ──
 \section{EXPERIENCE}
 
-\role{LLVM Project --- Open-Source Contributor}{Remote}{2025 -- Present}
+\role{LLVM Project --- Open-Source Contributor (clang-tidy)}{Remote}{March 2026 -- May 2026}
 \begin{itemize}
-    \item Contributing to clang-tidy: developing and refining static analysis checks for the Clang tooling ecosystem
-    \item Investigating and reproducing crash bugs in Clang's parser (e.g., stack-overflow in \texttt{ParsePostfixExpressionSuffix}) using locally built LLVM with AddressSanitizer on ARM64
-    \item Engaging with the LLVM community through bug reports, code review, and patch submissions
+    \item Landed 7 pull requests to \texttt{clang-tidy}, fixing false positives and fix-it correctness bugs across 6 readability and modernization checks; each PR closed a reported GitHub issue with new tests and release-notes entries
+    \item Fixed false positives in \texttt{readability-convert-member-functions-to-static} (\href{https://github.com/llvm/llvm-project/pull/191432}{overloaded methods via lambdas}, \href{https://github.com/llvm/llvm-project/pull/191712}{\texttt{const} overloads}) and \href{https://github.com/llvm/llvm-project/pull/192254}{\texttt{readability-redundant-parentheses}} (overloaded operators); extended \href{https://github.com/llvm/llvm-project/pull/191386}{\texttt{readability-redundant-casting}} with an \texttt{IgnoreImplicitCasts} option
+    \item Corrected fix-it generation in \href{https://github.com/llvm/llvm-project/pull/202015}{\texttt{modernize-loop-convert}}, \href{https://github.com/llvm/llvm-project/pull/195846}{\texttt{modernize-return-braced-init-list}}, and \href{https://github.com/llvm/llvm-project/pull/202869}{\texttt{readability-inconsistent-ifelse-braces}}
 \end{itemize}
+
 
 \role{LFortran --- Compiler Engineer}{Remote}{March 2024 -- June 2025}
 \begin{itemize}
